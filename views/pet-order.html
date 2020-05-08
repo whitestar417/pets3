@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Pet Orders</title>
+    <title>Order Form</title>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,35 +13,40 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9] -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <link rel="shortcut icon" href=""></head>
+
+
+
 <body>
 <div class="container">
     <h1>Order a Pet</h1>
 
     <form action="#" method="post" class="form-horizontal">
 
-        <!-- get pet type -->
+        <!-- get pet -->
         <div class="form-group">
-            <label for="pet" class="col-sm-2 control-label">What kind of pet would your like to order?</label>
+            <label for="pet" class="col-sm-2 control-label">What kind of pet would you like to order?</label>
 
             <div class="col-sm-4">
                 <input class="form-control" type="text" name="pet" id="pet">
             </div>
         </div>
 
-        <!-- get pet color -->
+        <!-- get color -->
         <div class="form-group">
-            <label class="col-sm-2 control-label">Select a color</label>
+            <label for="color" class="col-sm-2 control-label">Select a color</label>
+            <div class="col-sm-4">
 
-            <select id="petColor" name="color">
-                <option value="black">Black</option>
-                <option value="white">White</option>
-                <option value="spotted">Spotted</option>
-            </select>
+                <select class="form-control" id="color" name="color">
+                    <option> -Please Select- </option>
+                    <option value="purple">Purple</option>
+                    <option value="brown">Brown</option>
+                    <option value="green">Green</option>
+                </select>
+            </div>
+
         </div>
 
         <div class="col-xs-3 ">

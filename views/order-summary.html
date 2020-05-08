@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 
-    <title>My Pets Page</title>
+    <title>Order Summary</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -20,15 +20,17 @@
 
 
 
-
 </head>
 <body>
 <div class="container">
-    <h1>Welcome to My Pets Page</h1>
-    <img src="images/pets.jpg" alt="pets">
-    <br>
-    <a href="order">Order a Pet</a>
+    <h1>Order Summary</h1>
+
+    <p>Thank you for ordering a {{ @SESSION.color }} {{ @SESSION.pet }}!</p>
+
+
+
 
 </div>
+
 </body>
 </html>
