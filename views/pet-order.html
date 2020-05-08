@@ -41,9 +41,11 @@
 
                 <select class="form-control" id="color" name="color">
                     <option> -Please Select- </option>
-                    <option value="purple">Purple</option>
-                    <option value="brown">Brown</option>
-                    <option value="green">Green</option>
+
+                    <repeat group="{{ @colors }}" value="{{ @colorOption }}">
+                        <option>{{ @colorOption }}</option>
+                    </repeat>
+
                 </select>
             </div>
 

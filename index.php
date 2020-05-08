@@ -11,6 +11,8 @@ require_once('vendor/autoload.php');
 //Instantiate the F3 Base class
 $f3 = Base::instance();   //a Fat Free object
 
+$f3->set('colors', array('pink', 'green', 'blue'));
+
 //Define a default route
 $f3->route('GET /', function()
 {
