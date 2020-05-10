@@ -21,22 +21,30 @@
 
 <body>
 <div class="container">
-    <h1>Order a Pet</h1>
+    <h1>Order a Pet, Step 2</h1>
 
     <form action="#" method="post" class="form-horizontal">
 
-        <!-- get pet -->
+        <!-- get color -->
         <div class="form-group">
-            <label for="pet" class="col-sm-2 control-label">What kind of pet would you like to order?</label>
-
+            <label for="color" class="col-sm-2 control-label">Select a color</label>
             <div class="col-sm-4">
-                <input class="form-control" type="text" name="pet" id="pet">
+
+                <select class="form-control" id="color" name="color">
+                    <option> -Please Select- </option>
+
+                    <repeat group="{{ @colors }}" value="{{ @colorOption }}">
+                        <option>{{ @colorOption }}</option>
+                    </repeat>
+
+                </select>
             </div>
+
         </div>
 
         <div class="col-xs-3 ">
             <input class="form-control btn btn-default"
-                   type="submit" value="Next >>">
+                   type="submit" value="Place Order">
         </div>
     </form>
 </div>

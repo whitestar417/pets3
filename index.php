@@ -37,6 +37,29 @@ $f3->route('GET|POST /order', function($f3)
             //Data is valid
             $_SESSION['pet'] = $_POST['pet'];
 
+            //Redirect to the summary route
+            $f3->reroute("order2");
+        }
+    }
+
+    $view = new Template();
+    echo $view->render('views/pet-order.html');
+});
+
+//Define an order route
+$f3->route('GET|POST /order2', function($f3)
+{
+    //Check if the form has been posted
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+        //Validate the data
+        if (empty($_POST['color']))
+        {
+            //Data is invalid
+            echo 'Please supply a color';
+        }
+        else
+        {
             //Add color to the session
             $_SESSION['color'] = $_POST['color'];
 
@@ -46,7 +69,7 @@ $f3->route('GET|POST /order', function($f3)
     }
 
     $view = new Template();
-    echo $view->render('views/pet-order.html');
+    echo $view->render('views/pet-order2.html');
 });
 
 //Summary route
