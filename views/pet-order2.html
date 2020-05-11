@@ -29,18 +29,19 @@
         <div class="form-group">
             <label for="color" class="col-sm-2 control-label">Select a color</label>
             <div class="col-sm-4">
+                <check if="{{ isset(@errors['color']) }}">
+                    <p class="text-danger">{{ @errors['color'] }}</p>
+                </check>
 
                 <select class="form-control" id="color" name="color">
                     <option> -Please Select- </option>
+
 
                     <repeat group="{{ @colors }}" value="{{ @colorOption }}">
                         <option>{{ @colorOption }}</option>
                     </repeat>
 
                 </select>
-                <p class="text-danger">
-                    {{ @errors['color'] }}
-                </p>
             </div>
 
         </div>
