@@ -30,7 +30,7 @@
             <label for="pet" class="col-sm-2 control-label">What kind of pet would you like to order?</label>
 
             <div class="col-sm-4">
-                <check if="isset($_SESSION['pet']">
+                <check if="{{ isset(@errors['pet']) }}">
                     <p class="text-danger">{{ @errors['pet'] }}</p>
                 </check>
                 <input class="form-control" type="text" name="pet" id="pet">
