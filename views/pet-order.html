@@ -31,7 +31,12 @@
 
             <div class="col-sm-4">
                 <input class="form-control" type="text" name="pet" id="pet">
+                <p class="text-danger">
+                    {{ @errors['pet'] }}
+                </p>
             </div>
+
+
         </div>
 
         <div class="col-xs-3 ">

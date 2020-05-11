@@ -13,6 +13,9 @@ $f3 = Base::instance();   //a Fat Free object
 
 $f3->set('colors', array('pink', 'green', 'blue'));
 
+//Require the validation file
+require_once('models/validation-functions.php');
+
 //Define a default route
 $f3->route('GET /', function()
 {
@@ -23,22 +26,30 @@ $f3->route('GET /', function()
 //Define an order route
 $f3->route('GET|POST /order', function($f3)
 {
+    //Clear SESSION variable
+    $_SESSION = array();
+
     //Check if the form has been posted
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
+
+        $pet = $_POST['pet'];
+
         //Validate the data
-        if (empty($_POST['pet']))
+        if (validString($pet))
         {
-            //Data is invalid
-            echo 'Please supply a pet type';
-        }
-        else
-        {
-            //Data is valid
-            $_SESSION['pet'] = $_POST['pet'];
+            $_SESSION['pet'] = $pet;
 
             //Redirect to the summary route
             $f3->reroute("order2");
+
+        }
+        else
+        {
+            //Data is invalid
+            $f3->set("errors['pet']", "Please enter an animal.");
+
+
         }
     }
 
@@ -52,19 +63,22 @@ $f3->route('GET|POST /order2', function($f3)
     //Check if the form has been posted
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
+
+        $color = $_POST['color'];
+
         //Validate the data
-        if (empty($_POST['color']))
-        {
-            //Data is invalid
-            echo 'Please supply a color';
-        }
-        else
+        if (validColor($color))
         {
             //Add color to the session
             $_SESSION['color'] = $_POST['color'];
 
             //Redirect to the summary route
             $f3->reroute("summary");
+        }
+        else
+        {
+            //Data is invalid
+            $f3->set("errors['color']", "Please enter a valid color.");
         }
     }
 
